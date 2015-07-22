@@ -1,11 +1,14 @@
+# The function cacheSolve calculates the inverse of the special matrix
+# reusing cached reesults if they are existing
+
 cacheSolve<-function(x=matrix(),...){
-     m<-x$getmatrix()
-     if(!is.null(m)) {
+     a<-x$getmatrix()
+     if(!is.null(a)) {
          message("getting cached data")
-         return(m)
+         return(a)
      }
      matrix<-x$get()
-     m<-solve(matrix,...)
-     x$setmatrix(m)
-     m
+     a<-solve(matrix,...)
+     x$setmatrix(a)
+     a
 }
